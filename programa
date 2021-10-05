@@ -17,7 +17,7 @@ for mes in lista_meses:
         vendas = tabela_vendas.loc[tabela_vendas ["Vendas"] > 55000, "Vendas"].values[0]
         print(f"No mês {mes} alguém bateu a meta. Vendedr: {vendedor}, vendas: {vendas}")
         message = client.messages.create(
-            to="+5566999658341", 
+            to="+556699965xxxx", 
             from_="+12254145126",
              body=f"No mês {mes} alguém bateu a meta. Vendedor: {vendedor}, vendas: {vendas}")
         print(message.sid)
