@@ -1,4 +1,4 @@
-import panda as pd
+import pandas as pd
 from twilio.rest import Client
 
 # Your Account SID from twilio.com/console
