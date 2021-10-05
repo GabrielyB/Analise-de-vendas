@@ -1,6 +1,10 @@
 # Passo a passo de solução
 # Abrir os 6 arquivos de Excel
 lista_meses = ["1 janeiro", "2 fevereiro", 3 março", "4 abril", "5 maio", "6 junho" ]
+
+tabela_vendas = pd.read_excel ("1 janeiro.xlsx")
+print(tabela_vendas)
+
 # Para cada arquivo:
 # Verificar se algum valor na coluna de Vendar daquele arquivo é > que 55.000
 # Se for > que 55.000 -> Enviar um SMS com o nome, o mês e as vendas do vendedor
