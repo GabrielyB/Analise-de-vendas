@@ -1,15 +1,26 @@
-# Passo a passo de solução
-# Abrir os 6 arquivos de Excel
+import panda as pd
+from twilio.rest import Client
 
-lista_meses = ["1 janeiro", "2 fevereiro", 3 março", "4 abril", "5 maio", "6 junho" ]
+# Your Account SID from twilio.com/console
+account_sid = "AC3660aff68dc1fd19937cdc7dffb3f6f4"
+# Your Auth Token from twilio.com/console
+auth_token  = "6f4d9aba7a51bfc0e2e9b231d67e1608"
 
-tabela_vendas = pd.read_excel ("janeiro.xlsx")
-print(tabela_vendas)
+client = Client(account_sid, auth_token)
 
+lista_meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho" ]
 
-# Para cada arquivo:
-# Verificar se algum valor na coluna de Vendar daquele arquivo é > que 55.000
-# Se for > que 55.000 -> Enviar um SMS com o nome, o mês e as vendas do vendedor
-# Não fazer nada caso seja < que 55.000
+for mes in lista_meses:
+    tabela_vendas = pd.read_excel (f"{mes}.xlsx")
+    if (tabela_vendas["Vendas"] > 55000). any():
+        vendedor =tabela_vendas.loc[tabela_vendas ["Vendas"] > 55000, "Vendedor"].values[0]
+        vendas = tabela_vendas.loc[tabela_vendas ["Vendas"] > 55000, "Vendas"].values[0]
+        print(f"No mês {mes} alguém bateu a meta. Vendedr: {vendedor}, vendas: {vendas}")
+        message = client.messages.create(
+            to="+5566999658341", 
+            from_="+12254145126",
+             body=f"No mês {mes} alguém bateu a meta. Vendedor: {vendedor}, vendas: {vendas}")
+        print(message.sid)
+
 
 
